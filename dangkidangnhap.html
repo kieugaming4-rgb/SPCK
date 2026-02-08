@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập / Đăng ký</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2 id="form-title">Đăng nhập</h2>
+    <form id="auth-form">
+      <input type="text" id="username" placeholder="Tên đăng nhập" required>
+      <input type="password" id="password" placeholder="Mật khẩu" required>
+      <button type="submit">Xác nhận</button>
+      <p class="register-link">
+        <span id="toggle-text">Chưa có tài khoản?</span> 
+        <a href="#" id="toggle-link">Đăng ký</a>
+      </p>
+    </form>
+    <p id="message"></p>
+  </div>
+
+  <script src="dangnhapdangki.js"></script>
+</body>
+</html>

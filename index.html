@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trang chủ đánh giá mô hình Transformers</title>
+<link rel="stylesheet" href="Styleindex.css">
+</head>
+<body>
+<header>
+    <div class="user-info">
+        <span id="username-display"></span>
+        <button id="logout-btn">Đăng xuất</button>
+    </div>
+    <h1>🤖 TRANSFORMERS MODEL REVIEWS</h1>
+    <p>Giới thiệu & đánh giá mô hình Transformers</p>
+</header>
+
+
+<div class="container" id="content"></div>
+
+<script>
+const data = [
+{
+    model: "Yolopark AMK Pro Drift",
+    intro: "Một mô hinh khác",
+    accessories: ["2 thanh kiếm samurai","Nhiều bàn tay thay thế","Chân đế trưng bày"],
+    image: "https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/616215515_122249321438087898_1595942010962640686_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Gt65MmHirLIQ7kNvwGIQVg7&_nc_oc=AdmE2Tm2kF2_GIo2bqFSawPsPVqdGUtctkUVE_cE-cniWxQiShJzmDua_ZeSvhgok-8&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&_nc_gid=61k6guGfDdGa0n7EZDut8w&oh=00_Afr1I_LSzd1xFVVOhTEznWw8o34LJtG1DMoGNuM4v_nXSA&oe=698141ED",
+    reviews: [
+        { user: "Minh TF", star: 5, text: "Chi tiết cực cao, pose dáng rất đã." },
+        { user: "CybertronVN", star: 4, text: "Không biến hình nhưng sculpt rất đẹp." }
+    ]
+},
+{
+    model: "Transformers Studio Series Leader Class Optimus Prime",
+    intro: "Loại Limited của dòng Studio series wave 18 năm 2025. Mô hình dựa theo phần phim số 4 tên Age Of Extinction 2014. Prime bản knight này sẽ biến hình thành chiếc Western Star 5700XE",
+    accessories: ["Kiếm Energon","Khiên","Kiếm Energon"],
+    image: "https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/625129022_122251176458087898_8206801300359555007_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF4qsEQAhUD_lnLGbo2QiMP9pnVfegsTnT2mdV96CxOdBK6IiJKt44PFK16XM2nWHWeIiUfljArssprpsKssz6A&_nc_ohc=pGHi0940Fo8Q7kNvwFAJ1US&_nc_oc=AdmSUUtNAQqmpwG_2CueqYOIiY7kMk0c0BqLQQ7B8pdVI2Dmt-2ZFNfXqTToIyUEySU&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&_nc_gid=lKxY26k8Uh4h0Om4XYegoA&oh=00_AfuSwQTTZnfzG0lQrx4CCzeYJo6YGvNm9dP8-pL1svirRA&oe=6984C423",
+    reviews: [
+        { user: "OptimusFan", star: 5, text: "Biến hình khó nhưng rất đã tay." },
+        { user: "TF Review", star: 5, text: "Dù phần lưng thừa nhưng Prime vẫn rất là đẹp và hoàn hảo với một hiệp sĩ." }
+    ]
+},
+{
+    model: "Blokees Action Optimus Prime TF07",
+    intro: "Mô hình lắp ráp nhỏ gọn, phong cách dễ thương, phù hợp người mới chơi và fan Transformers One.",
+    accessories: ["2 kiếm energon","Tay thay thế","Súng"],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNDQU6QyJiBfrGUy5IHHT4T6ikjN9KoLVNlQ&s",
+    reviews: [
+        { user: "BrickTF", star: 4, text: "Lắp ráp vui, rất phù hợp học sinh." },
+        { user: "TFONE VN", star: 5, text: "Nhỏ gọn nhưng rất có hồn." }
+    ]
+},
+{
+    model: "Optimus TFONE Action Edition",
+    intro: "Phiên bản Optimus Prime trong Transformers One với phong cách action figure, khớp linh hoạt, tạo dáng mạnh mẽ.",
+    accessories: ["Rìu Energon","Súng nhỏ","Chân đế trưng bày"],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyTLgGFI2xKrsPCegt_J5vDMEE-SFcjhpsDw&s", /* thay bằng ảnh thật nếu có */
+    reviews: [
+        { user: "ActionFan", star: 5, text: "Khớp rất chắc, pose dáng cực ngầu." },
+        { user: "TF Collector", star: 4, text: "Chi tiết tốt, nhưng phụ kiện hơi ít." }
+    ]
+},
+{
+    model: "Yolopark Orion Pax",
+    intro: "Phiên bản tiền thân của Optimus Prime, thể hiện tinh thần lãnh đạo và lý tưởng Orion Pax.",
+    accessories: ["Sách Energon","Tay thay thế","Chân đế trưng bày"],
+    image: "https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/615407516_122249351726087898_307831412727514190_n.jpg?stp=cp6_dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=DahbAHEXLzcQ7kNvwGAtlbZ&_nc_oc=Adlpf1FI8ApSQ2N3HX7UsHsX9IHZbugjPow-6Brc1UY0VZI8_7QQUGJuijx77d-R7J4&_nc_zt=23&_nc_ht=scontent.fhan14-2.fna&_nc_gid=Nx7CulBR5Bb94C-_RdRLhw&oh=00_AfqVnK4gUVVRNNvq1OOOpS9VX_tgBow5NaonV17TrjGGug&oe=69829998",
+    reviews: [
+        { user: "PrimeLegacy", star: 5, text: "Thiết kế rất có chiều sâu." },
+        { user: "Collector Pro", star: 5, text: "Một figure trưng bày cực đẹp." }
+    ]
+},
+{
+    model: "Studio Series Core Class Ironhide",
+    intro: "Ironhide Core Class nhỏ gọn, biến hình đơn giản, phù hợp trưng bày cùng các mô hình Studio Series khác.",
+    accessories: ["2 khẩu Súng blaster"],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw6-Fvq2W6C-91V-ycoR9M2RHR7DQq92XcQw&s",
+    reviews: [
+        { user: "CoreTF", star: 4, text: "Nhỏ nhưng chắc chắn, chơi vui." },
+        { user: "CollectorVN", star: 4, text: "Phù hợp sưu tầm Core Class." }
+    ]
+},
+{
+    model: "Studio Series 104 Nightbird",
+    intro: "Nightbird Studio Series 104 tái hiện nhân vật phản diện nữ trong Rise of the Beasts, tạo hình mảnh mai, sắc sảo.",
+    accessories: ["Kiếm Katana"],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9-qOAJSIY2zOVN9OOXYSGE8U8E-fz6IXmg&s",
+    reviews: [
+        { user: "ROTB Fan", star: 5, text: "Tạo hình rất ngầu, pose dáng đẹp." },
+        { user: "TF Review", star: 4, text: "Khớp tốt, chi tiết sắc nét." }
+    ]
+},
+ {
+
+        model: "Core Class Starscream (Bumblebee Movie)",
+        intro: "Starscream Core Class lấy cảm hứng từ thiết kế Cybertron trong Bumblebee Movie, mang phong cách G1 hiện đại.",
+        accessories: ["Blaster"],
+        image: "https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-mdtbdsgjnnos7a",
+        reviews: [
+            { user: "G1 Lover", star: 4, text: "Chuẩn G1, rất đẹp." },
+            { user: "Core Fan", star: 3, text: "Nhỏ gọn, hợp trưng bày." }
+        ]
+},
+{
+        model: "Shockwave Studio Series Leader 56",
+        intro: "Shockwave Studio Series giữ được vẻ lạnh lùng và đáng sợ.",
+        accessories: ["Cấy đao", "2 nhân vật Wheelie và Brains","Lính nhảy dù"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKZDLHpMSn3DIa2chVueN3rkqWRFl4g9qslA&s",
+        reviews: [
+            { user: "Collector", star: 3, text: "Giá rẻ, ổn trong tầm tiền." },
+            { user: "Shockwave Fan", star: 4, text: "Tạo hình vẫn rất ngầu." }
+        ]
+    },
+{
+        model: "Optimus Prime Studio Series Voyager",
+        intro: "Optimus Prime của Studio Series giữ được vẻ của một nhà lãnh đạo tài năng.",
+        accessories: ["Một khẩu súng dài"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4hBWtqzFHbdUVGzxVoJrcKC_lsjdExWQzg&s",
+        reviews:[
+            { user: "Collector", star: 3, text: "Giá rẻ, ổn trong tầm tiền." },
+            { user: "Prime123", star: 4, text: "Tạo hình vẫn rất ngầu." }
+        ]
+    },
+];
+
+function render() {
+    let html = "";
+    data.forEach((item, index) => {
+        html += `
+        <div class="model">
+            <h2>${item.model}</h2>
+            <div class="top">
+                <img src="${item.image}" alt="${item.model}">
+                <div class="info">
+                    <b>📖 Giới thiệu:</b>
+                    <p>${item.intro}</p>
+                    <div class="accessories">
+                        <b>🧰 Phụ kiện đi kèm:</b>
+                        <ul>${item.accessories.map(a => `<li>${a}</li>`).join("")}</ul>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        item.reviews.forEach(r => {
+            html += `
+            <div class="review">
+                <div class="user">${r.user}</div>
+                <div class="stars">${"★".repeat(r.star)}</div>
+                <p>${r.text}</p>
+            </div>
+            `;
+        });
+
+        // Form ghi đánh giá
+        html += `
+        <div class="review-form">
+            <h3>✍️ Viết đánh giá của bạn</h3>
+            <input type="text"
+            <select id="star-${index}">
+                <option value="5">★★★★★ (5 sao)</option>
+                <option value="4">★★★★☆ (4 sao)</option>
+                <option value="3">★★★☆☆ (3 sao)</option>
+                <option value="2">★★☆☆☆ (2 sao)</option>
+                <option value="1">★☆☆☆☆ (1 sao)</option>
+            </select>
+            <textarea id="text-${index}" placeholder="Nội dung đánh giá..." required></textarea>
+            <button onclick="addReview(${index})">Gửi đánh giá</button>
+        </div>
+        </div>
+        `;
+    });
+    document.getElementById("content").innerHTML = html;
+}
+
+function addReview(index) {
+    const star = parseInt(document.getElementById(`star-${index}`).value);
+    const text = document.getElementById(`text-${index}`).value;
+
+    if(user && text) {
+        data[index].reviews.push({ savedUser, star, text });
+        render(); // render lại để hiển thị review mới
+        // Lấy tên đăng nhập từ localStorage
+    const savedUser = localStorage.getItem("user") || "Ẩn danh";
+    } else {
+        alert("Vui lòng nhập đầy đủ thông tin!");
+    }
+}
+
+
+render();
+</script>
+<script src="index.js"></script>
+</body>
