@@ -1,86 +1,130 @@
-/* Nền gradient động */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+/* ===== BODY ===== */
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#a6c1ee);
 }
 
-/* Khung đăng nhập */
-.login-container {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  width: 320px;
-  text-align: center;
+/* ===== HEADER ===== */
+.simple-header{
+    background:white;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
-.login-container h2 {
-  margin-bottom: 20px;
-  color: #4A148C;
-  font-weight: bold;
+.simple-header h1{
+    color:#6a1b9a;
 }
 
-/* Input */
-.login-container input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: 0.3s;
+/* ===== LOGIN BOX ===== */
+.login-container{
+    width:350px;
+    background:white;
+    margin:60px auto;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
 }
 
-.login-container input:focus {
-  border-color: #7C4DFF;
-  box-shadow: 0 0 8px rgba(124,77,255,0.5);
-  outline: none;
+.login-container h2{
+    margin-bottom:20px;
+    color:#7C4DFF;
 }
 
-/* Nút bấm */
-.login-container button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  background: linear-gradient(45deg, #FF6F61, #FFB74D, #4DB6AC);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* ===== INPUT ===== */
+.login-container input{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    transition:0.3s;
 }
 
-.login-container button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+.login-container input:focus{
+    border-color:#7C4DFF;
+    outline:none;
+    box-shadow:0 0 8px rgba(124,77,255,0.4);
 }
 
-/* Link đăng ký */
-.register-link {
-  margin-top: 15px;
-  font-size: 14px;
+/* ===== BUTTON ===== */
+.login-container button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:linear-gradient(45deg,#7C4DFF,#4DB6AC);
+    border:none;
+    color:white;
+    font-weight:bold;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-.register-link a {
-  color: #1976D2;
-  text-decoration: none;
-  font-weight: bold;
+.login-container button:hover{
+    transform:scale(1.05);
 }
 
-.register-link a:hover {
-  text-decoration: underline;
+/* ===== MESSAGE ===== */
+#message{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+/* ===== SWITCH ===== */
+.switch{
+    margin-top:15px;
+}
+
+.switch a{
+    color:#1976D2;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.switch a:hover{
+    text-decoration:underline;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    margin-top:auto;
+    background:white;
+    text-align:center;
+    padding:15px;
+    box-shadow:0 -4px 10px rgba(0,0,0,0.1);
+}
+/* ===== CARD TRANG CHỦ ===== */
+.model{
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;   /* căn giữa toàn bộ nội dung */
+}
+
+/* ẢNH TRANG CHỦ */
+.model img{
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;       /* quan trọng */
+    margin: 15px auto;    /* căn giữa ảnh */
+}
+#content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* căn giữa toàn bộ card */
+    gap: 30px;
 }

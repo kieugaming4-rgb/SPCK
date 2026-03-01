@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng nhập / Đăng ký</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Đăng nhập / Đăng ký</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="login-container">
-    <h2 id="form-title">Đăng nhập</h2>
-    <form id="auth-form">
-      <input type="text" id="username" placeholder="Tên đăng nhập" required>
-      <input type="password" id="password" placeholder="Mật khẩu" required>
-      <button type="submit">Xác nhận</button>
-      <p class="register-link">
-        <span id="toggle-text">Chưa có tài khoản?</span> 
-        <a href="#" id="toggle-link">Đăng ký</a>
-      </p>
-    </form>
-    <p id="message"></p>
-  </div>
 
-  <script src="js/dangnhapdangki.js"></script>
+<header class="simple-header">
+<h1>TRANSFORMERS REVIEW</h1>
+</header>
+
+<div class="login-container">
+<h2 id="form-title">Đăng nhập</h2>
+
+<form id="auth-form">
+<input type="text" id="username" placeholder="Tên đăng nhập" required>
+<input type="password" id="password" placeholder="Mật khẩu" required>
+<button type="submit">Xác nhận</button>
+</form>
+
+<p id="message"></p>
+
+<p class="switch">
+<span id="toggle-text">Chưa có tài khoản?</span>
+<a href="#" id="toggle-link">Đăng ký</a>
+</p>
+</div>
+
+<footer>© 2026 Transformers Review</footer>
+
+<script src="js/dangnhapdangki.js"></script>
 </body>
 </html>
